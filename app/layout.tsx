@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { CartProvider } from '@/components/CartProvider';
 import './globals.css';
+import './commerce.css';
 
 export const metadata: Metadata = {
   title: 'Boutaleb Sweet | Pâtisserie & Gâteaux',
