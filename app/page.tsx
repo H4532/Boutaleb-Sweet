@@ -18,14 +18,14 @@ export default function HomePage() {
 
       <section className="hero container">
         <div className="hero-copy">
-          <p className="eyebrow"><Sparkles size={16} /> Créations artisanales en Algérie</p>
+          <p className="eyebrow"><Sparkles size={16} /> Créations artisanales à Alger</p>
           <h1>Des moments sucrés,<br /><em>faits avec amour.</em></h1>
           <p>Gâteaux, pâtisseries et box gourmandes préparés sur commande pour vos fêtes, cadeaux et envies du quotidien.</p>
           <div className="hero-actions">
             <Link className="button button-primary" href="/shop">Découvrir la boutique</Link>
             <Link className="button button-secondary" href="/cart">Voir mon panier</Link>
           </div>
-          <div className="hero-note"><span>Préparé sur commande</span><span>Paiement à la livraison</span><span>Livraison nationale</span></div>
+          <div className="hero-note"><span>Préparé sur commande</span><span>Paiement à l’avance</span><span>Livraison dans la wilaya d’Alger</span></div>
         </div>
         <div className="hero-visual">
           <Image
@@ -40,9 +40,9 @@ export default function HomePage() {
       </section>
 
       <section className="section container delivery-benefits">
-        <div><Truck size={24} /><strong>Livraison 58 wilayas</strong><span>Tarif calculé selon votre destination</span></div>
-        <div><ShieldCheck size={24} /><strong>Paiement flexible</strong><span>À la livraison ou par transfert confirmé</span></div>
-        <div><MapPin size={24} /><strong>Commande en Algérie</strong><span>Une expérience pensée pour le marché algérien</span></div>
+        <div><Truck size={24} /><strong>Livraison à Alger</strong><span>Disponible dans les communes de la wilaya d’Alger</span></div>
+        <div><ShieldCheck size={24} /><strong>Paiement à l’avance</strong><span>La commande est confirmée après réception du paiement</span></div>
+        <div><MapPin size={24} /><strong>Commande locale</strong><span>Une expérience pensée pour nos clients à Alger</span></div>
       </section>
 
       <section id="categories" className="section container">
@@ -77,8 +77,8 @@ export default function HomePage() {
 
       <section id="contact" className="contact-section">
         <div className="container contact-inner">
-          <div><p className="eyebrow">Prêt à commander ?</p><h2>Choisissez vos douceurs et indiquez votre wilaya à la livraison.</h2></div>
-          <div className="contact-actions"><Link className="button button-light" href="/shop">Commencer ma commande</Link><p><MapPin size={17} /> Livraison en Algérie</p></div>
+          <div><p className="eyebrow">Prêt à commander ?</p><h2>Choisissez vos douceurs et indiquez votre commune dans la wilaya d’Alger.</h2></div>
+          <div className="contact-actions"><Link className="button button-light" href="/shop">Commencer ma commande</Link><p><MapPin size={17} /> Livraison dans la wilaya d’Alger</p></div>
         </div>
       </section>
 
