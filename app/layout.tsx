@@ -4,8 +4,8 @@ import './globals.css';
 import './commerce.css';
 
 export const metadata: Metadata = {
-  title: 'Boutaleb Sweet | Pâtisserie & Gâteaux',
-  description: 'Boutaleb Sweet — handmade cakes, pastries and desserts in Jeddah.',
+  title: 'Boutaleb Sweet Algérie | Pâtisserie & Gâteaux',
+  description: 'Boutaleb Sweet Algérie — gâteaux, pâtisseries et box gourmandes préparés sur commande avec livraison nationale.',
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
