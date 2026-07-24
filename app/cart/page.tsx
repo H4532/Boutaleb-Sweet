@@ -6,7 +6,7 @@ import { Minus, Plus, Trash2 } from 'lucide-react';
 import { StoreHeader } from '@/components/StoreHeader';
 import { useCart } from '@/components/CartProvider';
 
-const formatPrice = (price: number) => new Intl.NumberFormat('fr-DZ').format(price);
+const formatDzd = (value: number) => `${new Intl.NumberFormat('fr-DZ').format(value)} DA`;
 
 export default function CartPage() {
   const { items, total, removeItem, updateQuantity } = useCart();
@@ -23,7 +23,7 @@ export default function CartPage() {
           {items.length === 0 ? (
             <div className="empty-cart">
               <h2>Votre panier est vide</h2>
-              <p>Découvrez nos gâteaux, pâtisseries et box gourmandes préparés avec soin.</p>
+              <p>Découvrez nos gâteaux, pâtisseries et coffrets préparés avec soin.</p>
               <Link className="button button-primary" href="/shop">Voir les produits</Link>
             </div>
           ) : items.map((item) => (
@@ -38,17 +38,17 @@ export default function CartPage() {
                   <button onClick={() => updateQuantity(item.slug, item.quantity + 1)} aria-label="Augmenter la quantité"><Plus size={15} /></button>
                 </div>
               </div>
-              <div className="cart-item-end"><strong>{formatPrice(item.price * item.quantity)} DA</strong><button onClick={() => removeItem(item.slug)} aria-label={`Supprimer ${item.name}`}><Trash2 size={18} /></button></div>
+              <div className="cart-item-end"><strong>{formatDzd(item.price * item.quantity)}</strong><button onClick={() => removeItem(item.slug)} aria-label={`Supprimer ${item.name}`}><Trash2 size={18} /></button></div>
             </article>
           ))}
         </div>
         <aside className="order-summary">
-          <h2>Résumé de la commande</h2>
-          <div><span>Sous-total</span><strong>{formatPrice(total)} DA</strong></div>
+          <h2>Résumé</h2>
+          <div><span>Sous-total</span><strong>{formatDzd(total)}</strong></div>
           <div><span>Livraison</span><span>Calculée selon la wilaya</span></div>
-          <div className="summary-total"><span>Total produits</span><strong>{formatPrice(total)} DA</strong></div>
-          {items.length > 0 && <button className="button button-primary" type="button">Continuer vers la livraison</button>}
-          <p>Paiement à la livraison ou par virement/BaridiMob selon confirmation. Les frais et délais dépendent de la wilaya.</p>
+          <div className="summary-total"><span>Total produits</span><strong>{formatDzd(total)}</strong></div>
+          {items.length > 0 && <Link className="button button-primary" href="/checkout">Passer à la validation</Link>}
+          <p>Vous pourrez choisir la wilaya, le mode de livraison et le paiement à l’étape suivante.</p>
         </aside>
       </section>
     </main>
