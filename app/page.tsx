@@ -11,6 +11,7 @@ const categories = [
   ['Box gourmandes', 'Des assortiments élégants pour offrir et partager'],
 ];
 
+// Delivery is currently limited to the wilaya of Alger.
 export default function HomePage() {
   return (
     <main>
