@@ -6,6 +6,8 @@ import { Heart, ShoppingBag } from 'lucide-react';
 import type { Product } from '@/data/products';
 import { useCart } from './CartProvider';
 
+const formatPrice = (price: number) => new Intl.NumberFormat('fr-DZ').format(price);
+
 export function ProductCard({ product }: { product: Product }) {
   const { addItem } = useCart();
 
@@ -18,9 +20,9 @@ export function ProductCard({ product }: { product: Product }) {
       </Link>
       <div className="product-info">
         <div><Link href={`/shop/${product.slug}`}><h3>{product.name}</h3></Link><p>{product.category}</p></div>
-        <strong>{product.price} SAR</strong>
+        <strong>{formatPrice(product.price)} DA</strong>
       </div>
-      <button className="add-button" onClick={() => addItem(product)}><ShoppingBag size={18} /> Add to cart</button>
+      <button className="add-button" onClick={() => addItem(product)}><ShoppingBag size={18} /> Ajouter au panier</button>
     </article>
   );
 }
