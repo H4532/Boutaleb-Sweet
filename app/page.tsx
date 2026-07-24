@@ -1,85 +1,54 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { CakeSlice, Heart, Instagram, MapPin, Menu, Search, ShoppingBag, Sparkles } from 'lucide-react';
-
-const products = [
-  {
-    name: 'Chocolate Celebration Cake',
-    price: '180 SAR',
-    image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=85',
-    tag: 'Bestseller',
-  },
-  {
-    name: 'Strawberry Dream Cake',
-    price: '165 SAR',
-    image: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=1000&q=85',
-    tag: 'New',
-  },
-  {
-    name: 'Mini Dessert Box',
-    price: '95 SAR',
-    image: 'https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=1000&q=85',
-    tag: 'Popular',
-  },
-];
+import { MapPin, ShieldCheck, Sparkles, Truck } from 'lucide-react';
+import { StoreHeader } from '@/components/StoreHeader';
+import { ProductCard } from '@/components/ProductCard';
+import { products } from '@/data/products';
 
 const categories = [
-  ['Custom Cakes', 'Made for birthdays and special moments'],
-  ['Pastries', 'Freshly prepared sweet bites'],
-  ['Dessert Boxes', 'Beautiful assortments for gifting'],
+  ['Gâteaux personnalisés', 'Pour anniversaires, mariages et moments uniques'],
+  ['Pâtisseries', 'Des douceurs artisanales préparées avec soin'],
+  ['Box gourmandes', 'Des assortiments élégants pour offrir et partager'],
 ];
 
 export default function HomePage() {
   return (
     <main>
-      <div className="announcement">Freshly made with love • Delivery across Jeddah • WhatsApp 0538007073</div>
-
-      <header className="site-header container">
-        <button className="icon-button mobile-only" aria-label="Open menu"><Menu size={21} /></button>
-        <Link href="/" className="brand" aria-label="Boutaleb Sweet home">
-          <span className="brand-mark"><CakeSlice size={24} /></span>
-          <span><strong>BOUTALEB</strong><small>SWEET · JEDDAH</small></span>
-        </Link>
-        <nav className="desktop-nav" aria-label="Main navigation">
-          <Link href="#shop">Shop</Link>
-          <Link href="#categories">Collections</Link>
-          <Link href="#about">Our story</Link>
-          <Link href="#contact">Contact</Link>
-        </nav>
-        <div className="header-actions">
-          <button className="icon-button" aria-label="Search"><Search size={20} /></button>
-          <button className="icon-button desktop-only" aria-label="Wishlist"><Heart size={20} /></button>
-          <button className="bag-button" aria-label="Shopping cart"><ShoppingBag size={20} /><span>0</span></button>
-        </div>
-      </header>
+      <StoreHeader />
 
       <section className="hero container">
         <div className="hero-copy">
-          <p className="eyebrow"><Sparkles size={16} /> Handmade in Jeddah</p>
-          <h1>Sweet moments,<br /><em>beautifully made.</em></h1>
-          <p>Elegant cakes, pastries and dessert boxes prepared with care for celebrations, gifts and everyday cravings.</p>
+          <p className="eyebrow"><Sparkles size={16} /> Créations artisanales en Algérie</p>
+          <h1>Des moments sucrés,<br /><em>faits avec amour.</em></h1>
+          <p>Gâteaux, pâtisseries et box gourmandes préparés sur commande pour vos fêtes, cadeaux et envies du quotidien.</p>
           <div className="hero-actions">
-            <Link className="button button-primary" href="#shop">Shop our sweets</Link>
-            <a className="button button-secondary" href="https://wa.me/966538007073">Order on WhatsApp</a>
+            <Link className="button button-primary" href="/shop">Découvrir la boutique</Link>
+            <Link className="button button-secondary" href="/cart">Voir mon panier</Link>
           </div>
-          <div className="hero-note"><span>Made to order</span><span>Fresh ingredients</span><span>Local delivery</span></div>
+          <div className="hero-note"><span>Préparé sur commande</span><span>Paiement à la livraison</span><span>Livraison nationale</span></div>
         </div>
         <div className="hero-visual">
           <Image
             src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&w=1400&q=90"
-            alt="Elegant celebration cake by Boutaleb Sweet"
+            alt="Gâteau de fête élégant Boutaleb Sweet Algérie"
             fill
             priority
             sizes="(max-width: 900px) 100vw, 50vw"
           />
-          <div className="floating-card"><strong>Made with love</strong><span>صنعت بكل حب</span></div>
+          <div className="floating-card"><strong>Fait avec amour</strong><span>صنعت بكل حب</span></div>
         </div>
+      </section>
+
+      <section className="section container delivery-benefits">
+        <div><Truck size={24} /><strong>Livraison 58 wilayas</strong><span>Tarif calculé selon votre destination</span></div>
+        <div><ShieldCheck size={24} /><strong>Paiement flexible</strong><span>À la livraison ou par transfert confirmé</span></div>
+        <div><MapPin size={24} /><strong>Commande en Algérie</strong><span>Une expérience pensée pour le marché algérien</span></div>
       </section>
 
       <section id="categories" className="section container">
         <div className="section-heading">
-          <div><p className="eyebrow">Explore</p><h2>Shop by collection</h2></div>
-          <Link href="#shop">View all products →</Link>
+          <div><p className="eyebrow">Nos univers</p><h2>Achetez par collection</h2></div>
+          <Link href="/shop">Voir tous les produits →</Link>
         </div>
         <div className="category-grid">
           {categories.map(([title, description], index) => (
@@ -93,40 +62,30 @@ export default function HomePage() {
       <section id="shop" className="section products-section">
         <div className="container">
           <div className="section-heading centered">
-            <div><p className="eyebrow">Our favourites</p><h2>Best sellers</h2><p>Customer-loved treats, freshly prepared for every order.</p></div>
+            <div><p className="eyebrow">Nos favoris</p><h2>Meilleures ventes</h2><p>Des créations appréciées par nos clients, préparées spécialement pour chaque commande.</p></div>
           </div>
           <div className="product-grid">
-            {products.map((product) => (
-              <article className="product-card" key={product.name}>
-                <div className="product-image">
-                  <Image src={product.image} alt={product.name} fill sizes="(max-width: 760px) 100vw, 33vw" />
-                  <span className="product-tag">{product.tag}</span>
-                  <button aria-label={`Add ${product.name} to wishlist`}><Heart size={18} /></button>
-                </div>
-                <div className="product-info"><div><h3>{product.name}</h3><p>Handmade to order</p></div><strong>{product.price}</strong></div>
-                <button className="add-button"><ShoppingBag size={18} /> Add to cart</button>
-              </article>
-            ))}
+            {products.slice(0, 3).map((product) => <ProductCard key={product.slug} product={product} />)}
           </div>
         </div>
       </section>
 
       <section id="about" className="story container section">
-        <div className="story-image"><Image src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?auto=format&fit=crop&w=1200&q=85" alt="Fresh Boutaleb Sweet pastries" fill sizes="(max-width: 900px) 100vw, 50vw" /></div>
-        <div className="story-copy"><p className="eyebrow">Our story</p><h2>Small details make every celebration sweeter.</h2><p>Boutaleb Sweet creates beautiful handmade desserts in Jeddah. Every order is prepared with attention to flavour, presentation and the moment you are celebrating.</p><a className="text-link" href="https://www.tiktok.com/@boutaleb_sweet_jeddah"><Instagram size={18} /> Follow our latest creations</a></div>
+        <div className="story-image"><Image src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?auto=format&fit=crop&w=1200&q=85" alt="Pâtisseries fraîches Boutaleb Sweet" fill sizes="(max-width: 900px) 100vw, 50vw" /></div>
+        <div className="story-copy"><p className="eyebrow">Notre histoire</p><h2>Chaque détail rend vos célébrations plus belles.</h2><p>Boutaleb Sweet crée des desserts artisanaux pensés pour les familles algériennes. Chaque commande est préparée avec attention, de la saveur jusqu’à la présentation.</p><Link className="text-link" href="/shop">Découvrir nos créations</Link></div>
       </section>
 
       <section id="contact" className="contact-section">
         <div className="container contact-inner">
-          <div><p className="eyebrow">Ready to order?</p><h2>Let us make your next sweet moment.</h2></div>
-          <div className="contact-actions"><a className="button button-light" href="https://wa.me/966538007073">WhatsApp us</a><p><MapPin size={17} /> Jeddah, Saudi Arabia</p></div>
+          <div><p className="eyebrow">Prêt à commander ?</p><h2>Choisissez vos douceurs et indiquez votre wilaya à la livraison.</h2></div>
+          <div className="contact-actions"><Link className="button button-light" href="/shop">Commencer ma commande</Link><p><MapPin size={17} /> Livraison en Algérie</p></div>
         </div>
       </section>
 
       <footer className="footer container">
-        <div className="brand"><span className="brand-mark"><CakeSlice size={24} /></span><span><strong>BOUTALEB</strong><small>SWEET · JEDDAH</small></span></div>
-        <p>Handmade cakes, pastries and desserts. صنعت بكل حب</p>
-        <div><a href="tel:+966538007073">0538007073</a><a href="https://www.tiktok.com/@boutaleb_sweet_jeddah">TikTok</a></div>
+        <div className="brand"><span><strong>BOUTALEB</strong><small>SWEET · ALGÉRIE</small></span></div>
+        <p>Gâteaux, pâtisseries et douceurs artisanales. صنعت بكل حب</p>
+        <div><Link href="/shop">Boutique</Link><Link href="/cart">Panier</Link></div>
       </footer>
     </main>
   );
