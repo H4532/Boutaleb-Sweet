@@ -3,8 +3,8 @@ import { ProductCard } from '@/components/ProductCard';
 import { products } from '@/data/products';
 
 export const metadata = {
-  title: 'Shop | Boutaleb Sweet',
-  description: 'Shop handmade cakes, pastries and dessert boxes from Boutaleb Sweet in Jeddah.',
+  title: 'Boutique | Boutaleb Sweet Algérie',
+  description: 'Découvrez les gâteaux, pâtisseries et box gourmandes Boutaleb Sweet avec livraison en Algérie.',
 };
 
 export default function ShopPage() {
@@ -12,20 +12,20 @@ export default function ShopPage() {
     <main>
       <StoreHeader />
       <section className="page-hero container">
-        <p className="eyebrow">Freshly handmade</p>
-        <h1>Our sweet collection</h1>
-        <p>Browse cakes, pastries and dessert boxes made to order in Jeddah.</p>
+        <p className="eyebrow">Préparé avec soin</p>
+        <h1>Notre collection gourmande</h1>
+        <p>Découvrez nos gâteaux, pâtisseries et box préparés sur commande avec livraison disponible en Algérie.</p>
       </section>
       <section className="container shop-layout">
         <aside className="shop-filters">
-          <strong>Categories</strong>
-          <a href="#all">All products</a>
-          <a href="#cakes">Custom cakes</a>
-          <a href="#pastries">Pastries</a>
-          <a href="#boxes">Dessert boxes</a>
+          <strong>Catégories</strong>
+          <a href="#all">Tous les produits</a>
+          <a href="#cakes">Gâteaux personnalisés</a>
+          <a href="#pastries">Pâtisseries</a>
+          <a href="#boxes">Box gourmandes</a>
         </aside>
         <div>
-          <div className="shop-toolbar"><span>{products.length} products</span><span>Prices in SAR</span></div>
+          <div className="shop-toolbar"><span>{products.length} produits</span><span>Prix en dinar algérien</span></div>
           <div className="product-grid" id="all">
             {products.map((product) => <ProductCard key={product.slug} product={product} />)}
           </div>
