@@ -9,7 +9,7 @@ export function StoreHeader() {
 
   return (
     <>
-      <div className="announcement">Préparé avec amour • Livraison disponible dans les 58 wilayas • Paiement à la livraison</div>
+      <div className="announcement">Préparé avec amour • Livraison disponible dans la wilaya d’Alger • Paiement à l’avance</div>
       <header className="site-header container">
         <button className="icon-button mobile-only" aria-label="Ouvrir le menu"><Menu size={21} /></button>
         <Link href="/" className="brand" aria-label="Accueil Boutaleb Sweet">
